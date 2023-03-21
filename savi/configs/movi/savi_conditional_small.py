@@ -32,7 +32,7 @@ def get_config():
   config.seed = 42
   config.seed_data = True
 
-  config.batch_size = 64
+  config.batch_size = 16 # bs have to larger than 5
   config.num_train_steps = 100000
 
   # Adam optimizer config.
@@ -41,7 +41,7 @@ def get_config():
   config.max_grad_norm = 0.05
 
   config.log_loss_every_steps = 50
-  config.eval_every_steps = 1000
+  config.eval_every_steps = 200
   config.checkpoint_every_steps = 5000
 
   config.train_metrics_spec = {
@@ -57,7 +57,8 @@ def get_config():
 
   config.data = ml_collections.ConfigDict({
       "tfds_name": "movi_a/128x128:1.0.0",  # Dataset for training/eval.
-      "data_dir": "gs://kubric-public/tfds",
+    #   "data_dir": "gs://kubric-public/tfds",
+      "data_dir": ".",
       "shuffle_buffer_size": config.batch_size * 8,
   })
 

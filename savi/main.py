@@ -34,6 +34,9 @@ flags.DEFINE_string("workdir", None, "Work unit directory.")
 flags.DEFINE_string("jax_backend_target", None, "JAX backend target to use.")
 flags.mark_flags_as_required(["config", "workdir"])
 
+# import os
+# os.environ['XLA_PYTHON_CLIENT_PREALLOCATE'] = 'false'
+# os.environ['XLA_PYTHON_CLIENT_ALLOCATOR'] = 'platform'
 
 def main(argv):
   del argv
